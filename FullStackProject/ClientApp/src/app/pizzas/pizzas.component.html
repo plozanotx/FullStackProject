@@ -1,0 +1,45 @@
+<h1 id="tableLabel">Pizzas</h1>
+
+<p *ngIf="!pizzas"><em>Loading...</em></p>
+
+<div *ngIf="pizzas">
+
+  <div class="row">
+    <div class="col-3">Name</div>
+    <div class="col-3">Price</div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <input type="text" [(ngModel)]="name">
+    </div>
+    <div class="col-3">
+      <input type="number">
+    </div>
+
+    <div class="col-1">
+      <input type="button" class="btn btn-danger" value="Clear" />
+    </div>
+
+    <div class="col-1">
+      <input type="button" class="btn btn-primary" value="Search" (click)="search()" />
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pizza of pizzas">
+        <td>{{ pizza.name }}</td>
+        <td>{{ pizza.description }}</td>
+        <td>{{ pizza.retailPrice }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
