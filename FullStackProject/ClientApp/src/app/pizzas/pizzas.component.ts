@@ -17,10 +17,10 @@ export class PizzasComponent implements OnInit {
 
   constructor(http: HttpClient, @Inject('API_BASE_URL') apiBaseUrl: string) {
 
-
-    http.get<Pizza[]>(apiBaseUrl + 'pizzas').subscribe(result => {
-      this.pizzas = result;
+    http.get<Pizza[]>(apiBaseUrl + 'pizzas').subscribe(results => {
+      this.pizzas = results;
     }, error => console.error(error));
+
   }
 
   ngOnInit() {
